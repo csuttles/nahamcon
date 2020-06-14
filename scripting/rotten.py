@@ -87,10 +87,10 @@ def main():
                 # noisy but useful
                 # print(f"{n} - '{dec}'", end='')
                 msg, char, pos, sendit = parseresp(dec.encode("utf-8"))
-                if pos!= 9999999 and char:
+                if char and pos!= 999999:
                     # print(f'match pos: {pos} and char: {char}', dec)
                     flag[pos] = char.decode("utf-8")
-                    FLAG = ''.join(flag)
+                    FLAG = (''.join(flag)).rstrip()
                     print('\b' * (len(flag) + 20), f'FLAG: "{FLAG}"', end='')
                     client.send(msg)
                     dat = recvall(client)
