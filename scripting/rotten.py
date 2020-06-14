@@ -104,7 +104,12 @@ def main():
             print('oops')
             client.close()
             break
+        except KeyboardInterrupt:
+            client.close()
+            break
     client.close()
+    print('\b' * (len(flag) + 20), f'FLAG: "{FLAG}"', end='')
+
 
 
 if __name__ == '__main__':
